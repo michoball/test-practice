@@ -1,0 +1,78 @@
+{
+  "name": "codevolution-test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.11",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "eslint-plugin-jest-dom": "^4.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.4",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ignore-path .gitignore .",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\"",
+    "coverage": "react-scripts test --coverage --collectCoverageFrom='src/components/**/*.{ts,tsx}' --collectCoverageFrom='!src/components/**/*.{types,test}.{ts,tsx}'",
+    "prepare": "husky install"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:jest-dom/recommended",
+      "eslint-config-prettier"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "funtions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.6.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.2",
+    "msw": "^1.0.1",
+    "prettier": "2.8.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint"
+    ],
+    "*.{ts,tsx,css,scss}": [
+      "prettier --write"
+    ]
+  }
+}
