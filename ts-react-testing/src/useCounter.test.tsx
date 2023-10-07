@@ -7,6 +7,5 @@ test("should increment", () => {
   act(() => {
     result.current.increment();
   });
-
   expect(result.current.count).toBe(1);
 });

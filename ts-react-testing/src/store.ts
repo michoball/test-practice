@@ -3,6 +3,7 @@ import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface CounterState {
   value: number;
 }
+
 const initialState: CounterState = {
   value: 0,
 };
@@ -23,6 +24,7 @@ export const counterSlice = createSlice({
   },
 });
 
+// Action creators are generated for each case reducer function
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 export const createStore = () =>
@@ -33,5 +35,7 @@ export const createStore = () =>
   });
 export const store = createStore();
 
+// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;

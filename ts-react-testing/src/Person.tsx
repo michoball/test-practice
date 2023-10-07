@@ -1,5 +1,5 @@
 import React from "react";
 
-export const Person = ({ name }: { name: string }) => (
-  <div role="contentinfo">Name is {name}</div>
-);
+export const Person = ({ name }: { name: string }) => {
+  return <div role="contentinfo">NAme is {name}</div>;
+};

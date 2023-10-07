@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
-export const Counter: React.FunctionComponent = () => {
+export const Counter: React.FC = () => {
   const [count, setCount] = useState(0);
-
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>Add One</button>
+      <button onClick={() => setCount((prev) => prev + 1)}>Add One</button>
       <div role="contentinfo">Count is {count}</div>
     </div>
   );

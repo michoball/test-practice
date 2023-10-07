@@ -1,14 +1,15 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { ReduxCounter } from "./ReduxCounter";
-import { Provider } from "react-redux";
-import { createStore } from "./store";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { ZustandCounter } from "./ZustandCounter";
+import { useStore } from "./ZustandStore";
 
-test("increment", () => {
-  render(
-    <Provider store={createStore()}>
-      <ReduxCounter />
-    </Provider>
-  );
+const originalState = useStore.getState();
+
+beforeEach(() => {
+  useStore.setState(originalState);
+});
+
+test("add one", () => {
+  render(<ZustandCounter />);
 
   const counter = screen.getByRole("contentinfo");
   expect(counter).toHaveTextContent("0");
@@ -18,12 +19,8 @@ test("increment", () => {
   expect(counter).toHaveTextContent("1");
 });
 
-test("increment again", () => {
-  render(
-    <Provider store={createStore()}>
-      <ReduxCounter />
-    </Provider>
-  );
+test("add one again", () => {
+  render(<ZustandCounter />);
 
   const counter = screen.getByRole("contentinfo");
   expect(counter).toHaveTextContent("0");

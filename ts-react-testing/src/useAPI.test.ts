@@ -1,12 +1,12 @@
-import React from "react";
-import { rest } from "msw";
+import { renderHook, act } from "@testing-library/react-hooks";
+
 import { setupServer } from "msw/node";
+import { rest } from "msw";
 import { useAPI } from "./useAPI";
-import { renderHook } from "@testing-library/react-hooks";
 
 const server = setupServer(
   rest.get("/api", (req, res, ctx) => {
-    return res(ctx.json({ name: "Jack" }));
+    return res(ctx.json({ name: "jack" }));
   })
 );
 
@@ -14,10 +14,10 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-test("should increment", async () => {
+test("should get api data", async () => {
   const { result, waitForNextUpdate } = renderHook(() => useAPI());
 
   await waitForNextUpdate();
 
-  expect(result.current).toEqual({ name: "Jack" });
+  expect(result.current).toEqual({ name: "jack" });
 });

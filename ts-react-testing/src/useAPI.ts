@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-export function useAPI() {
+export const useAPI = () => {
   const [data, setData] = useState<{
     name: string;
   }>();
@@ -20,4 +20,4 @@ export function useAPI() {
   }, []);
 
   return data;
-}
+};
